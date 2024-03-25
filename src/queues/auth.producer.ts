@@ -15,7 +15,7 @@ export async function publishDirectMessage(
 ): Promise<void> {
   try {
     if (!channel) {
-      channel = await createConnection() as Channel;
+      channel = (await createConnection()) as Channel;
     }
     await channel.assertExchange(exchangeName, 'direct');
     channel.publish(exchangeName, routingKey, Buffer.from(message));

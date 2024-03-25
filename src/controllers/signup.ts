@@ -23,7 +23,7 @@ export async function create(req: Request, res: Response): Promise<void> {
   }
 
   const profilePublicId = uuidV4();
-  const uploadResult: UploadApiResponse = await uploads(profilePicture, `${profilePublicId}`, true, true) as UploadApiResponse;
+  const uploadResult: UploadApiResponse = (await uploads(profilePicture, `${profilePublicId}`, true, true)) as UploadApiResponse;
   if (!uploadResult.public_id) {
     throw new BadRequestError('File upload error. Try again', 'SignUp create() method error');
   }
@@ -38,7 +38,7 @@ export async function create(req: Request, res: Response): Promise<void> {
     profilePicture: uploadResult?.secure_url,
     emailVerificationToken: randomCharacters
   } as IAuthDocument;
-  const result: IAuthDocument = await createAuthUser(authData) as IAuthDocument;
+  const result: IAuthDocument = (await createAuthUser(authData)) as IAuthDocument;
   const verificationLink = `${config.CLIENT_URL}/confirm_email?v_token=${authData.emailVerificationToken}`;
   const messageDetails: IEmailMessageDetails = {
     receiverEmail: result.email,

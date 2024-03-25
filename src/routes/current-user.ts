@@ -1,4 +1,3 @@
-
 import { read, resendEmail } from '@auth/controllers/current-user';
 import { token } from '@auth/controllers/refresh-token';
 import express, { Router } from 'express';

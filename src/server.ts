@@ -62,7 +62,7 @@ function routesMiddleware(app: Application): void {
 }
 
 async function startQueues(): Promise<void> {
-  authChannel = await createConnection() as Channel;
+  authChannel = (await createConnection()) as Channel;
 }
 
 function startElasticSearch(): void {

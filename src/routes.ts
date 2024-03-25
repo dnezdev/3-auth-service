@@ -15,4 +15,4 @@ export function appRoutes(app: Application): void {
 
   app.use(BASE_PATH, verifyGatewayRequest, authRoutes());
   app.use(BASE_PATH, verifyGatewayRequest, currentUserRoutes());
-};
+}
