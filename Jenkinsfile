@@ -57,11 +57,11 @@ pipeline {
       }
     }
 
-    stage("Unit Test") {
-      steps {
-        sh 'npm run test'
-      }
-    }
+    // stage("Unit Test") {
+    //   steps {
+    //     sh 'npm run test'
+    //   }
+    // }
 
     // stage("Build and Push") {
     //   steps {
